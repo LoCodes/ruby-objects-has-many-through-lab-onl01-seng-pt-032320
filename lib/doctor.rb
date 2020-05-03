@@ -30,9 +30,12 @@ class Doctor
   end
 
   def appointments
-    Appointment.all.each {|a| a.doctor == self}
-  end
+     Appointment.all.select{|appoint| appoint.doctor ==self}
+   end
 
-
-
-end
+   def patients
+     ## that iterates over that doctor's Appointments and collects the patient that belongs to each Appointments
+     appoints=Appointment.all.select{|appoint| appoint.doctor ==self}
+     appoints.map{|appoint| appoint.patient}
+   end
+ end 
