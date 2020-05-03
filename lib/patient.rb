@@ -38,3 +38,13 @@ class Patient
       end
     end
   end
+
+
+  def doctors
+    Appointment.all.collect do |appointment|
+      if appointment.patient == self
+        appointment.doctor
+      end
+    end
+  end
+end
