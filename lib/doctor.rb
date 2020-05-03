@@ -30,7 +30,7 @@ class Doctor
   end
 
   def appointments
-    Appointment.all.select {|a| a.doctor == self}
+    Appointment.all.each {|a| a.doctor == self}
   end
 
 
